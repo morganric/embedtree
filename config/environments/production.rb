@@ -1,3 +1,14 @@
+ENV["DOMAIN_NAME"] = "embedtree.com"
+ENV["ADMIN_NAME"] = "admin"
+ENV["ADMIN_EMAIL"] = "user@admin.com"
+ENV["ADMIN_PASSWORD"] = "chaneme123"
+ENV["MANDRILL_USERNAME"] = 'morganric+artup@gmail.com'
+ENV["MANDRILL_APIKEY"] = 'M3G7MmfWxDBYTxnRArXrYg'
+ENV["FACEBOOK_APP_ID"] = "615925001838726"
+ENV["FACEBOOK_APP_SECRET"] = "b5626bc8bb29a1c3eab42e707adbfa01"
+
+
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
