@@ -2,21 +2,21 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :url %>
-    <%= f.input :title %>
-    <%= f.input :image %>
-    <%= f.input :thumbnail %>
-    <%= f.input :embed_code %>
+    <%= f.input :url, as: :hidden  %>
+    <%= f.input :title, as: :hidden  %>
+    <%= f.input :image, as: :hidden  %>
+    <%= f.input :thumbnail, as: :hidden  %>
+    <%= f.input :embed_code, as: :hidden  %>
     <%= f.input :description %>
-    <%= f.input :author %>
-    <%= f.input :author_url %>
-    <%= f.input :provider %>
-    <%= f.input :provider_url %>
+    <%= f.input :author, as: :hidden  %>
+    <%= f.input :author_url, as: :hidden  %>
+    <%= f.input :provider, as: :hidden  %>
+    <%= f.input :provider_url, as: :hidden  %>
     <%= f.input :hidden %>
     <%= f.input :featured %>
-    <%= f.input :user_id %>
-    <%= f.input :views %>
-    <%= f.input :slug %>
+    <%= f.input :user_id, as: :hidden  %>
+    <%= f.input :views, as: :hidden  %>
+    <%= f.input :slug, as: :hidden %>
     <%= f.input :tag_list %>
   </div>
 

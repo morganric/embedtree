@@ -8,7 +8,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'embedly'
 gem 'friendly_id', '~> 5.1.0'
-
+gem 'kaminari'
 
 
 group :development, :test do
