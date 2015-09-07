@@ -1,0 +1,50 @@
+<div class="col-md-12">
+<div class="col-md-4">
+
+<p>
+  <%= @profile.image %>
+</p>
+
+</div>
+<div class="col-md-8">
+  <h1>
+  <%= @profile.display_name %>
+</h1>
+
+<p class="well">
+  <%= @profile.bio %>
+  <%= link_to 'Edit', edit_profile_path(@profile) %> 
+
+</p>
+
+
+<p>
+  <%= link_to @profile.website, @profile.website, :target => "_blank" %>
+</p>
+</div>
+
+
+
+
+</div>
+
+<div class=" col-md-12">
+	<hr/>
+<% @posts.each do |post| %>
+	<div class="col-md-3">  
+        <div id="embed" class="embed-responsive embed-responsive-16by9">
+          <%= raw(post.embed_code) %>
+        </div>  
+        <h3>
+          <%= link_to truncate(post.title, length: 12), post %><br/>
+          <small>
+          via <%= link_to post.user.profile.display_name || post.user.id, vanity_profile_path(:id => post.user.profile) %>
+          </small>
+        </h3>
+        
+        
+    </div>
+<% end %>
+
+
+</div>

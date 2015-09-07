@@ -1,0 +1,54 @@
+
+<div class="col-md-12 clearfix">
+
+
+
+<h1>
+  <%= link_to @post.title, @post.url, :target => "_blank" %><br/>
+  <small>
+  via <%= link_to @post.user.profile.display_name || @post.user.name, vanity_profile_path(@post.user.profile)  %>
+  by <%= link_to @post.author, @post.author_url  %>
+  on <%= link_to @post.provider, @post.provider_url %>
+
+  </small>
+</h1>
+
+  <div class="col-md-8">
+
+
+  <div id="embed" class="embed-responsive embed-responsive-16by9">
+    <%= raw(@post.embed_code) %>
+  </div>
+<br/>
+<p class="well">
+  <%= @post.description %>
+</p>
+
+
+
+  <strong>Views:</strong>
+  <%= @post.views %>
+
+
+
+<p>
+  <%= @post.tag_list %>
+</p>
+
+<% if user_signed_in? %>
+  <% if current_user.try(:admin?) %>
+<%= link_to 'Edit', edit_post_path(@post) %> | 
+<span><%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+<% end %>
+<% end %>
+
+</div>
+
+  <div class="col-md-4">
+    <%= image_tag(@post.thumbnail) %>
+  </div>
+
+
+
+</div>
+

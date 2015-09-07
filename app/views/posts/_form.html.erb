@@ -1,0 +1,26 @@
+<%= simple_form_for(@post) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :url %>
+    <%= f.input :title %>
+    <%= f.input :image %>
+    <%= f.input :thumbnail %>
+    <%= f.input :embed_code %>
+    <%= f.input :description %>
+    <%= f.input :author %>
+    <%= f.input :author_url %>
+    <%= f.input :provider %>
+    <%= f.input :provider_url %>
+    <%= f.input :hidden %>
+    <%= f.input :featured %>
+    <%= f.input :user_id %>
+    <%= f.input :views %>
+    <%= f.input :slug %>
+    <%= f.input :tag_list %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

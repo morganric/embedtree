@@ -1,0 +1,1 @@
+json.extract! @post, :id, :url, :title, :image, :thumbnail, :embed_code, :description, :author, :author_url, :provider, :provider_url, :hidden, :featured, :user_id, :views, :slug, :tag_list, :created_at, :updated_at
