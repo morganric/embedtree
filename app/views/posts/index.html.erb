@@ -2,8 +2,9 @@
 <div class="col-md-12">
 <h1 class="text-center">EmbedTree</h1>
   <hr/>
+  <div class="col-md-10 col-md-offset-1">
     <% @posts.each do |post| %>
-      <div class="col-md-3">  
+      <div class="col-md-4">  
         <div id="embed" class="embed-responsive embed-responsive-16by9">
           <%= raw(post.embed_code) %>
         </div>  
