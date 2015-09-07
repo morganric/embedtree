@@ -20,20 +20,25 @@
     <%= raw(@post.embed_code) %>
   </div>
 <br/>
-<p class="well">
+
+
+
+
+</div>
+
+  <div class="col-md-4">
+    <p class="well">
   <%= @post.description %>
 </p>
-
-
 
   <strong>Views:</strong>
   <%= @post.views %>
 
-
-
 <p>
   <%= @post.tag_list %>
 </p>
+
+<br/>
 
 <% if user_signed_in? %>
   <% if current_user.try(:admin?) %>
@@ -41,11 +46,6 @@
 <span><%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
 <% end %>
 <% end %>
-
-</div>
-
-  <div class="col-md-4">
-    <%= image_tag(@post.thumbnail) %>
   </div>
 
 
