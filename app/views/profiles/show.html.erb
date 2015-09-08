@@ -1,12 +1,12 @@
-<div class="col-md-12">
-<div class="col-md-4">
+<div class="col-md-10 col-md-offset-1">
+<div class="col-md-3">
 
 <p>
-  <%= image_tag(@profile.image.url(:standard)) %>
+  <%= image_tag(@profile.image.url(:square), :class => "img-circle") %>
 </p>
 
 </div>
-<div class="col-md-8">
+<div class=" col-md-8">
   <h1>
   <%= @profile.display_name %>
 </h1>
@@ -30,21 +30,26 @@
 
 <div class=" col-md-12">
 	<hr/>
-<% @posts.each do |post| %>
-	<div class="col-md-3">  
+ <div class="col-md-10 col-md-offset-1">
+  <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+    <% @posts.each do |post| %>
+      <div class="col-md-4">  
         <div id="embed" class="embed-responsive embed-responsive-16by9">
           <%= raw(post.embed_code) %>
         </div>  
         <h4>
-          <%= link_to truncate(post.title, length: 25), user_post_path(id: post.slug, user_id: post.user.profile.slug) %><br/>
+          <%= link_to truncate(post.title, length: 30), user_post_path(id: post.slug, user_id: post.user.profile.slug) %><br/>
           <small>
           via <%= link_to post.user.profile.display_name || post.user.id, vanity_profile_path(:id => post.user.profile) %>
           </small>
         </h4>
-        
+        <br/>
         
     </div>
-<% end %>
+    <% end %>
+    </div>
+    <br>
+    <%= paginate @posts %>
 
 
 </div>
