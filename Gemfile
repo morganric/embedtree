@@ -10,6 +10,11 @@ gem 'embedly'
 gem 'friendly_id', '~> 5.1.0'
 gem 'kaminari'
 gem 'masonry-rails'
+gem 'therubyracer'
+# twitter bootstrap css & javascript toolkit
+gem 'twitter-bootswatch-rails', '~> 3.3.4'
+# twitter bootstrap helpers gem, e.g., alerts etc...
+gem 'twitter-bootswatch-rails-helpers'
 
 group :development, :test do
   gem 'byebug'

@@ -7,7 +7,7 @@ paginates_per 9
 validates_presence_of :url
 validates :url, :format => URI::regexp(%w(http https))
 
-validates_inclusion_of :provider, :in => ["Mixcloud", "SoundCloud", "Vimeo", "YouTube"], 
+validates_inclusion_of :provider, :in => ["Mixcloud", "SoundCloud", "Vimeo", "YouTube", "TED"], 
 		:message => "not a provider" 
 
 extend FriendlyId
