@@ -2,7 +2,7 @@
 <div class="col-md-4">
 
 <p>
-  <%= @profile.image %>
+  <%= image_tag(@profile.image.url(:standard)) %>
 </p>
 
 </div>
@@ -35,12 +35,12 @@
         <div id="embed" class="embed-responsive embed-responsive-16by9">
           <%= raw(post.embed_code) %>
         </div>  
-        <h3>
-          <%= link_to truncate(post.title, length: 20), user_post_path(id: post.slug, user_id: post.user.profile.slug) %><br/>
+        <h4>
+          <%= link_to truncate(post.title, length: 25), user_post_path(id: post.slug, user_id: post.user.profile.slug) %><br/>
           <small>
           via <%= link_to post.user.profile.display_name || post.user.id, vanity_profile_path(:id => post.user.profile) %>
           </small>
-        </h3>
+        </h4>
         
         
     </div>

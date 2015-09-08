@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dqiy3fupl
+  api_key: '852521766477718'
+  api_secret: fxFIZE89amzhL6b519dFY3wQv5o
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dqiy3fupl
+  api_key: '852521766477718'
+  api_secret: fxFIZE89amzhL6b519dFY3wQv5o
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dqiy3fupl
+  api_key: '852521766477718'
+  api_secret: fxFIZE89amzhL6b519dFY3wQv5o
+  enhance_image_tag: true
+  static_image_support: false
