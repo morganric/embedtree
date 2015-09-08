@@ -9,7 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'embedly'
 gem 'friendly_id', '~> 5.1.0'
 gem 'kaminari'
-
+gem 'masonry-rails'
 
 group :development, :test do
   gem 'byebug'

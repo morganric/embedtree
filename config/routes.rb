@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   
 	
   scope ":id" do
-    
     get '/', to: 'profiles#show', :as =>  :vanity_profile
-
   end
+
+   get '/:user_id/:id', to: 'posts#show', :as =>  :user_post
+
   root to: 'posts#index'
 
 end

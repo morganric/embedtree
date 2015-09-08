@@ -36,7 +36,7 @@
           <%= raw(post.embed_code) %>
         </div>  
         <h3>
-          <%= link_to truncate(post.title, length: 12), post %><br/>
+          <%= link_to truncate(post.title, length: 20), user_post_path(id: post.slug, user_id: post.user.profile.slug) %><br/>
           <small>
           via <%= link_to post.user.profile.display_name || post.user.id, vanity_profile_path(:id => post.user.profile) %>
           </small>

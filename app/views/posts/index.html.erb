@@ -3,21 +3,23 @@
 <h1 class="text-center">EmbedTree</h1>
   <hr/>
   <div class="col-md-10 col-md-offset-1">
+  <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
     <% @posts.each do |post| %>
       <div class="col-md-4">  
         <div id="embed" class="embed-responsive embed-responsive-16by9">
           <%= raw(post.embed_code) %>
         </div>  
-        <h3>
-          <%= link_to truncate(post.title, length: 20), post %><br/>
+        <h4>
+          <%= link_to truncate(post.title, length: 20), user_post_path(id: post.slug, user_id: post.user.profile.slug) %><br/>
           <small>
           via <%= link_to post.user.profile.display_name || post.user.id, vanity_profile_path(:id => post.user.profile) %>
           </small>
-        </h3>
+        </h4>
         
         
     </div>
     <% end %>
+    </div>
     <br>
     <%= paginate @posts %>
 </div>
