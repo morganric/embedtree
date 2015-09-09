@@ -9,6 +9,18 @@ class PostsController < ApplicationController
     @posts = Post.all.order('created_at DESC').page params[:page]
   end
 
+  def author
+    @author = params[:author]
+    @posts = Post.where(:author => params[:author]).order('created_at DESC').page params[:page]
+  end
+
+  def provider
+    @provider = params[:provider]
+    @posts = Post.where(:provider => params[:provider]).order('created_at DESC').page params[:page]
+
+  end
+
+
   # GET /posts/1
   # GET /posts/1.json
   def show

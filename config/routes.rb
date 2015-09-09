@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   mount Upmin::Engine => '/admin'
     devise_for :users
   resources :users
+
+   get 'author/:author', to: 'posts#author', :as =>  :author_posts
+
+   get 'provider/:provider', to: 'posts#provider', :as =>  :provider_posts
   
 	
   scope ":id" do
@@ -14,6 +18,7 @@ Rails.application.routes.draw do
   end
 
    get '/:user_id/:id', to: 'posts#show', :as =>  :user_post
+
 
   root to: 'posts#index'
 
