@@ -32,23 +32,8 @@
 	<hr/>
  <div class="col-md-10 col-md-offset-1">
   <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
-    <% @posts.each do |post| %>
-      <div class="col3 box">  
-        <!-- <div id="embed" class="embed-responsive embed-responsive-16by9">
-          <%#= raw(post.embed_code) %>
-        </div>  -->
-        <%= link_to image_tag(post.thumbnail, width: "250px"), user_post_path(:user_id => post.user, id: post.slug) %> 
-        <h4>
-          <%= link_to truncate(post.title, length: 30), user_post_path(id: post.slug, user_id: post.user.profile.slug) %><br/>
-          <small>
-          via <%= link_to post.user.profile.display_name || post.user.id, vanity_profile_path(:id => post.user.profile) %><br/>
-          by <%= link_to post.author, author_posts_path(:author => post.author) %> on <%= link_to post.provider, provider_posts_path(:provider => post.provider) %>
-          </small>
-        </h4>
-       
-        
-    </div>
-    <% end %>
+    <%= render 'shared/posts' %>
+
     </div>
     <br>
     <%= paginate @posts %>

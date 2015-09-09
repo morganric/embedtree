@@ -33,6 +33,9 @@
 
   <strong>Views:</strong>
   <%= @post.views %>
+<br/>
+  <strong>Created on:</strong>
+  <%= @post.created_at.strftime("%d %b. %Y") %>
 
 <p>
   <%= @post.tag_list %>
