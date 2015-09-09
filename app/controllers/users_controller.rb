@@ -5,6 +5,12 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     # authorize User
+    @views = 0
+    @posts = Post.all
+
+    Post.all.each do |p|
+      @views = @views + p.views
+    end
   end
 
   def show
