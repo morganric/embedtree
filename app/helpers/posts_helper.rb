@@ -13,9 +13,9 @@ module PostsHelper
     @post.embed_code = obj[0].html
     @post.description =  obj[0].description
     @post.thumbnail = obj[0].thumbnail_url
-    @post.provider = obj[0].provider_name
+    @post.provider = obj[0].provider_name || ""
     @post.provider_url = obj[0].provider_url
-    @post.author = obj[0].author_name
+    @post.author = obj[0].author_name || ""
     @post.author_url = obj[0].author_url
 
 	end
