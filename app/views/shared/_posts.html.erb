@@ -8,8 +8,13 @@
         <h4>
           <%= link_to truncate(post.title, length: 30), user_post_path(id: post.slug, user_id: post.user.profile.slug) %><br/>
           <small>
-          
-          by <%= link_to post.author, author_posts_path(:author => post.author) %> on <%= link_to post.provider, provider_posts_path(:provider => post.provider) %><br/>
+          <% unless @post.author.blank? %>
+          by <%= link_to post.author, author_posts_path(:author => post.author) %> 
+          <% end %>
+          <% unless @post.provider.blank? %>
+          on <%= link_to post.provider, provider_posts_path(:provider => post.provider) %>
+          <% end %>
+          <br/>
           via <%= link_to post.user.profile.display_name || post.user.id, vanity_profile_path(:id => post.user.profile) %><br/>
           </small>
         </h4>
