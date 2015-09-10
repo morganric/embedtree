@@ -2,7 +2,9 @@ class Post < ActiveRecord::Base
 
 
 belongs_to :user
-paginates_per 6
+paginates_per 6	
+
+acts_as_taggable
 
 validates_presence_of :url
 validates :url, :format => URI::regexp(%w(http https))

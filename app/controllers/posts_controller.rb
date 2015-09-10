@@ -21,6 +21,12 @@ class PostsController < ApplicationController
 
   end
 
+  def tag
+    @tag = params[:tag]
+    @posts = Post.tagged_with(params[:tag]).order('created_at DESC').page params[:page]
+
+  end
+
 
   # GET /posts/1
   # GET /posts/1.json

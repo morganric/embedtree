@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users
 
    get 'author/:author', to: 'posts#author', :as =>  :author_posts
-
+   get '/tagged/:tag', to: 'posts#tag', via: [:get, :post], :as => :tag
    get 'provider/:provider', to: 'posts#provider', :as =>  :provider_posts
   
 	
