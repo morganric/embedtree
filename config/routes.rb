@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
    get '/latest', to: 'posts#latest', :as =>  :latest   
-   
+
   resources :profiles
   resources :posts
   mount Upmin::Engine => '/admin'
@@ -23,6 +23,14 @@ Rails.application.routes.draw do
 
 
 
-  root to: 'posts#index'
+  authenticated :user do
+    root to: "posts#index", as: :authenticated_root
+  end
+
+  unauthenticated do
+    root to: "visitors#index"
+  end
+
+
 
 end

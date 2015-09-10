@@ -1,2 +1,13 @@
-<h3>Welcome</h3>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+
+<div class="jumbotron">
+  <h1>Welcome to EmbedTree</h1>
+  <p>This is a simple service for sharing great content - embeddable video and audio - from publishers like <b>YouTube</b>, <b>Vimeo</b>, <b>Mixcloud</b>, <b>SoundCloud</b> and <b>TED</b>. Signup to discover more...</p>
+  <p><a class="btn btn-primary btn-lg" href="<%= new_user_registration_path %>">Sign Up</a></p>
+</div>
+
+
+<style type="text/css">
+	body {
+		background-image: url('http://res.cloudinary.com/dqiy3fupl/image/upload/v1441919242/treeangles_yobroe.png');
+	}
+</style>
