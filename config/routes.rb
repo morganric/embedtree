@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
 
-
+   get '/latest', to: 'posts#latest', :as =>  :latest   
+   
   resources :profiles
   resources :posts
   mount Upmin::Engine => '/admin'
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   end
 
    get '/:user_id/:id', to: 'posts#show', :as =>  :user_post
+
 
 
   root to: 'posts#index'
