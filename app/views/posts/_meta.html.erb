@@ -1,0 +1,25 @@
+<% content_for :head do %>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@readioapp">
+<meta name="twitter:title" content="<%= @post.title %>">
+<meta name="twitter:description" content="<%= @post.description %>">
+<meta name="twitter:creator" content="@<%= @post.user.profile.display_name %>">
+<meta name="twitter:image:src" content="<%= @post.thumbnail %>">
+<meta name="twitter:domain" content="embedtree.com">
+
+<meta name="twitter:player:width" content="350px">
+<meta name="twitter:player:height" content="350px">
+
+<meta property="og:title" content="<%= @post.title %>" />
+<meta property="og:type" content="music.song" />
+<meta property="og:url" content="<%= user_post_url(id: @post.slug, :user_id => @post.user.name) %>" />
+<meta property="og:image" content="<%= @post.thumbnail %>" />
+<meta property="og:image:url" content="<%= @post.thumbnail %>" />
+<meta name="og:description" content="<%= @post.description %>">
+<meta property="og:site_name" content="EmbedTree" />
+
+
+<meta property="og:audio:title" content="<%= @post.title %>" />
+
+<% end %>
+

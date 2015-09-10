@@ -13,12 +13,13 @@ class PostsController < ApplicationController
   def author
     @author = params[:author]
     @posts = Post.where(:author => params[:author]).order('created_at DESC').page params[:page]
+    @link = @posts.last.author_url
   end
 
   def provider
     @provider = params[:provider]
     @posts = Post.where(:provider => params[:provider]).order('created_at DESC').page params[:page]
-
+     @link = @posts.last.provider_url
   end
 
   def tag
