@@ -18,6 +18,7 @@ gem 'twitter-bootswatch-rails-helpers'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem "social-buttons", '~> 0.3'
 
 group :development, :test do
   gem 'byebug'

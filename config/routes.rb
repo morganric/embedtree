@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     devise_for :users
   resources :users
 
-   get 'posts/:id', to: 'posts#short', :as =>  :short
+   get '/p/:id', to: 'posts#short', :as =>  :short
    get 'author/:author', to: 'posts#author', :as =>  :author_posts
    get '/tagged/:tag', to: 'posts#tag', via: [:get, :post], :as => :tag
    get 'provider/:provider', to: 'posts#provider', :as =>  :provider_posts

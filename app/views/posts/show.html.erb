@@ -28,14 +28,14 @@
 
   <div class="col-md-4">
     <p class="well">
-  <%= @post.description %>
+  <%= @post.description %><br/><br/>
+   <%= @post.created_at.strftime("%d %b. %Y") %>
 </p>
-
-  <strong>Views:</strong>
-  <%= @post.views %>
+  <label class="label label-success"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;
+  <%= pluralize(@post.views, "view") %></label>
 <br/>
-  <strong>Created on:</strong>
-  <%= @post.created_at.strftime("%d %b. %Y") %>
+
+ 
 
 <p>
    <%  @post.tag_list.each do |tag| %>
@@ -44,6 +44,14 @@
 </p>
 
 <br/>
+
+<ul class="nav social">
+<li style="postion:absolute; top:-8px;"><%= like_button("1440239169528450", send: true, :url => short_url( :id => @post.id)) %></li>
+<li><%= tweet_button(count: 'none', :url => short_url( :id => @post.id), via: "embedtree") %></li>
+<li><%= pinit_button %></li>
+</ul>
+
+<hr/>
 
 <% if user_signed_in? %>
   <% if current_user.try(:admin?) %>

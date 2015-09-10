@@ -5,3 +5,6 @@
  *= require sandstone/bootswatch
 */
 
+ul.social li {
+	display: inline;
+}

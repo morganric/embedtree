@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :short]
   before_filter :authenticate_user!,  except: [:index, :show, :tag, :author, :provider]
 
    include PostsHelper
@@ -26,6 +26,10 @@ class PostsController < ApplicationController
     @tag = params[:tag]
     @posts = Post.tagged_with(params[:tag]).order('created_at DESC').page params[:page]
 
+  end
+
+  def short
+    redirect_to user_post_path(:user_id => @post.user.profile.slug, :id => @post.slug)
   end
 
 
