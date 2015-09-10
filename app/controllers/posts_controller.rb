@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :short]
-  before_filter :authenticate_user!,  except: [:index, :show, :tag, :author, :provider]
+  before_filter :authenticate_user!,  except: [:index, :show, :tag, :author, :provider, :latest]
 
    include PostsHelper
 
