@@ -7,9 +7,11 @@
   <%= link_to @post.title, @post.url, :target => "_blank" %><br/>
   <small>
   via <%= link_to @post.user.profile.display_name || @post.user.name, vanity_profile_path(@post.user.profile)  %>
-  by <%= link_to @post.author, @post.author_url  %>
+  <% unless @post.author.empty %> by <%= link_to @post.author, @post.author_url  %>
+  <% end %>
+  <% unless @post.provider.empty? %>
   on <%= link_to @post.provider, @post.provider_url %>
-
+  <% end %>
   </small>
 </h1>
 
