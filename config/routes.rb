@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
    get '/latest', to: 'posts#latest', :as =>  :latest   
+    get '/about', to: 'visitors#index', :as =>  :about   
 
   resources :profiles
   resources :posts
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   unauthenticated do
-    root to: "visitors#index"
+    root to: "posts#index"
   end
 
 
