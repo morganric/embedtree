@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_only, :except => [:show, :page]
+  
   # GET /profiles
   # GET /profiles.json
   def index
@@ -64,6 +65,13 @@ class ProfilesController < ApplicationController
   end
 
   private
+
+  def admin_only
+    unless @current_user.try(:admin?) 
+      redirect_to :root, :alert => "Access denied."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
       @profile = Profile.friendly.find(params[:id])

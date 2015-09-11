@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :short]
   before_filter :authenticate_user!,  except: [:index, :show, :tag, :author, :provider, :latest]
+  
 
    include PostsHelper
 
@@ -105,6 +106,13 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def admin_only
+    unless @current_user.try(:admin?) 
+      redirect_to :root, :alert => "Access denied."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.friendly.find(params[:id])
