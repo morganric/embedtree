@@ -42,6 +42,12 @@ class PostsController < ApplicationController
   def show
     @post.views = @post.views.to_i + 1
     @post.save
+    
+
+    if params[:user_id].blank?
+    redirect_to user_post_path(:user_id => @post.user.profile.slug, :id => @post.slug)
+    end
+
   end
 
   # GET /posts/new
