@@ -11,7 +11,9 @@ module PostsHelper
 
     @post.title = obj[0].title
     @post.embed_code = obj[0].html
-    @post.description =  obj[0].description
+    if @post.description == ""
+        @post.description =  obj[0].description
+    end
     @post.thumbnail = obj[0].thumbnail_url
     @post.provider = obj[0].provider_name || ""
     @post.provider_url = obj[0].provider_url

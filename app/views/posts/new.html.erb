@@ -7,9 +7,10 @@
 
   <div class="form-inputs">
     <%= f.input :url %>
-    <%= f.input :description, as: :hidden %>
+    <%= f.input :description %>
+     <%= f.input :tag_list %>
     <%= f.input :provider, :disabled => true, :placeholder => "e.g. YouTube, Vimeo, Mixcloud, YouTube etc."  %>
-    <%= f.input :tag_list %>
+   
   </div>
 
   <div class="form-actions">
