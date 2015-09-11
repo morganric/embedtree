@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :admin_only
+  # before_action :admin_only
   before_action :authenticate_user!
   # after_action :verify_authorized
 
