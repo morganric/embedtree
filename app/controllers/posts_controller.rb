@@ -108,7 +108,7 @@ class PostsController < ApplicationController
   private
 
   def admin_only
-    unless @current_user.try(:admin?) 
+    unless current_user.admin?
       redirect_to :root, :alert => "Access denied."
     end
   end

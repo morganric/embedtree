@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_action :admin_only, :except => [:show, :page]
-  
+
   # GET /profiles
   # GET /profiles.json
   def index
@@ -67,7 +67,7 @@ class ProfilesController < ApplicationController
   private
 
   def admin_only
-    unless @current_user.try(:admin?) 
+    unless current_user.admin? 
       redirect_to :root, :alert => "Access denied."
     end
   end

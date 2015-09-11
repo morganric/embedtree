@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
-  # before_action :admin_only
+ 
   before_action :authenticate_user!
   # after_action :verify_authorized
+
+   before_action :admin_only
 
 
   def index
@@ -42,7 +44,7 @@ class UsersController < ApplicationController
   private
 
     def admin_only
-    unless @current_user.try(:admin?) 
+    unless current_user.admin?
       redirect_to :root, :alert => "Access denied."
     end
   end
