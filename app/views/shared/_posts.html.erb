@@ -19,8 +19,11 @@
           </small>
         </h4>
         <p>
+        <label class="label label-success"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;
+          <%= pluralize(post.views, 'views') %> 
+        </label>&nbsp;
    <%  post.tags.limit(3).each do |tag| %>
-  <label class="label label-default">#<%= link_to truncate(tag.name, length: 10), tag_path(tag: tag.name), :class=>"white"%></label>
+  <label class="label label-default">#<%= link_to truncate(tag.name, length: 8), tag_path(tag: tag.name), :class=>"white"%></label>
 <% end %>
 </p>       
         <br/>
