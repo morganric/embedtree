@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
 
   validates :invite_code, inclusion: { in: %w(producthunt mixcloud),
-    message: "%{value} is not a valid" }
+    message: "%{value} is not a valid one." }
 
-  validates :name, presence: true
+  validates :name, uniqueness: true
 
 
   enum role: [:user, :vip, :admin]
