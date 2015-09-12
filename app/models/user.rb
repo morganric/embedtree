@@ -26,8 +26,6 @@ class User < ActiveRecord::Base
     @profile.save
   end
 
-   validates :invite_code, inclusion: { in: %w(producthunt mixcloud),
-    message: "%{value} is not a valid one." }
 
   validates_uniqueness_of :name
 
