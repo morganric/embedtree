@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
 
-  validates :name, presence: true, on: :create
+  validates :name, presence: true
 
-  validates :invite_code, inclusion: :in => ["producthunt", "orsii", "mixcloud"], 
-    :message => "not a valid code.", on: :create
+  validates :invite_code, inclusion: { in: %w(producthunt mixcloud),
+    message: "%{value} is not a valid" }
 
 
   enum role: [:user, :vip, :admin]
