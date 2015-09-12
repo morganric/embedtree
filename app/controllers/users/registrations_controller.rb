@@ -1,4 +1,6 @@
-class RegistrationsController < ApplicationController
+
+class Users::RegistrationsController < Devise::RegistrationsController
+
 
 before_action :permit_invite_code
 
