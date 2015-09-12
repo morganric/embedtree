@@ -6,4 +6,6 @@ def permit_invite_code
   devise_parameter_sanitizer.for(:sign_up) << :invite_code
 end
 
+
+
 end

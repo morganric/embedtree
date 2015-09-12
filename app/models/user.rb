@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+    validates :name, presence: true
+
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
@@ -21,4 +24,10 @@ class User < ActiveRecord::Base
     @profile.display_name = self.name
     @profile.save
   end
+
+  validates_inclusion_of :invite_code, :in => ["producthunt", "orsii", "mixcloud"], 
+    :message => "not a valid code."
+
+
+
 end
