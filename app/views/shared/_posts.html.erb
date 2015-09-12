@@ -18,11 +18,9 @@
           via <%= link_to post.user.profile.display_name || post.user.id, vanity_profile_path(:id => post.user.profile) %><br/>
           </small>
         </h4>
-        <p>
    <%  post.tags.limit(3).each do |tag| %>
   <label class="label label-default">#<%= link_to truncate(tag.name, length: 10), tag_path(tag: tag.name), :class=>"white"%></label>
-<% end %>
-</p>       
+<% end %>     
         <br/>
     </div>
     <% end %>

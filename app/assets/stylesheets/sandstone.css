@@ -8,3 +8,7 @@
 ul.social li {
 	display: inline;
 }
+
+.white {
+	color: white !important;
+}
