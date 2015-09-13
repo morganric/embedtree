@@ -1,6 +1,6 @@
 <h3>User</h3>
-<p>Name: <%= @user.name if @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<p>Name: <%= link_to(@user.name || @user.name, vanity_profile_path(@user.profile.slug)) %></p>
+<p>Email: <%= @user.email || @user.email %></p>
 
 
 <% @posts.each do |post| %>
