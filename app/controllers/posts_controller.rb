@@ -8,7 +8,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order('views DESC').page params[:page]
+    @ago =  Time.now-14.days 
+    @posts = Post.where('created_at > ?', @ago ).order('views DESC').page params[:page]
   end
 
   def latest
