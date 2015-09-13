@@ -49,7 +49,7 @@
 
 <ul class="nav social">
 <li style="postion:absolute; top:-7px;"><%= like_button("1440239169528450", send: true, :url => short_url( :id => @post.id)) %></li>
-<li><%= tweet_button(count: 'none', :url => post_url( :id => @post.id), via: "embedtree") %></li>
+<li><%= tweet_button(count: 'inline', :url => post_url( :id => @post.id), via: "embedtree") %></li>
 <li><%= pinit_button %></li>
 </ul>
 
