@@ -2,7 +2,7 @@
 <div class="col-md-3">
 
 <p>
-  <%= image_tag(@profile.image.url(:square), :class => "img-circle") %>
+  <%= image_tag(@profile.image.url(:square) || "big-et.png", :class => "img-circle", :height => "200px") %>
 </p>
 
 </div>
