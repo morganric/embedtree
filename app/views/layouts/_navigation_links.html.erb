@@ -6,15 +6,28 @@
 <%= link_to raw(' <i class="glyphicon glyphicon-info-sign" ></i> About'), about_path %>
 </li>
 <% if user_signed_in? %>
+  <li class="dropdown pull-right">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-cog" ></i> Settings <span class="caret"></span></a>
+	 <ul class="dropdown-menu">
+	 <li><%= link_to 'Profile', vanity_profile_path(id: current_user.profile.slug) %></li>
+	 <li><%= link_to 'Edit Profile', edit_profile_path(current_user.profile) %></li>
   <li><%= link_to 'Edit account', edit_user_registration_path %></li>
   <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+  </ul></li>
+  
 <% else %>
   <li><%= link_to 'Sign in', new_user_session_path %></li>
   <li><%= link_to 'Sign up', new_user_registration_path %></li>
 <% end %>
 <% if user_signed_in? %>
   <% if current_user.try(:admin?) %>
-    <li><%= link_to 'Admin', '/admin' %></li>
+  	<li class="dropdown pull-right">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-briefcase" ></i> Admin <span class="caret"></span></a>
+	 <ul class="dropdown-menu">
+    <li><%= link_to 'Upmin', '/admin' %></li>
     <li><%= link_to 'Users', users_path %></li>
-  <% end %>
+
+    </ul>
+    </li>
+<% end %>
 <% end %>
