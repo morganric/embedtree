@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy, :popular]
-  before_action :admin_only, :except => [:show, :page, :popular]
+  before_action :admin_only, :except => [:show, :page, :popular, :edit]
 
   # GET /profiles
   # GET /profiles.json

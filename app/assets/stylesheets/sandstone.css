@@ -12,3 +12,7 @@ ul.social li {
 .white {
 	color: white !important;
 }
+
+.jumbotron a.btn-lg {
+	font-size: 16px !important;
+}
