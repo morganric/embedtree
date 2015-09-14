@@ -2,7 +2,7 @@
 <div class="col-md-3">
 
 <p>
-  <%= image_tag(@profile.image.url(:square), :class => "img-circle") %>
+  <%= image_tag(@profile.image.url(:square) || "http://res.cloudinary.com/dqiy3fupl/image/upload/c_fill,h_200,w_200/v1441999507/fwtfqghdcnua2z6nfsh6.png", :class => "img-circle") %>
 </p>
 
 </div>
