@@ -30,7 +30,7 @@
 
   <div class="col-md-4">
     <p class="well">
-  <%= @post.description %><br/><br/>
+  <%= auto_link(@post.description, :html => { :target => '_blank' }) %><br/><br/>
    <%= @post.created_at.strftime("%d %b. %Y") %>
 </p>
   <label class="label label-success"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;
