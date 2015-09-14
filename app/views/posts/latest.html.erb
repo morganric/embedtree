@@ -1,4 +1,4 @@
-
+<% unless user_signed_in? %>
 <div class="jumbotron">
   <span><%= image_tag("pent.png", class: "pull-right", width: "300px") %></span>
   <h1>Welcome to EmbedTree</h1>
@@ -9,12 +9,14 @@
   <h6>Want to get in touch with the team? Contact us via <a href="mailto:embedtree@gmail.com">embedtree(AT)gmail.com</a></h6>
 </div>
 
-
+<% else %>
+<h1 class="text-center">EmbedTree
+<br/>
+<small>Latest Content</small>
+</h1>
+<% end %>
 
 <div class="col-md-12">
-  <!-- <h1 class="text-center">EmbedTree<br/>
-  <small>Latest</small>
-  </h1> -->
   <hr/>
 
 
