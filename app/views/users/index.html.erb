@@ -14,23 +14,29 @@
     </div>
   </div>
 <div class="col-md-4">
+<br/>
   <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">Views</h3>
+    <h3 class="panel-title">Stats</h3>
   </div>
   <div class="panel-body">
+    <b>Views:</b>
     <%= @views %>
+    <br/>
+    <b>Posts:</b>
+    <%= @posts.count %>
+    <br/>
+    <b>Tags:</b>
+    <%= ActsAsTaggableOn::Tag.all.count %>
+    <br/>
+    <b>Users:</b>
+    <%= @users.count %>
+
+
   </div>
 </div>
 
-  <div class="panel panel-success">
-  <div class="panel-heading">
-    <h3 class="panel-title">Posts</h3>
-  </div>
-  <div class="panel-body">
-    <%= @posts.count %>
-  </div>
-</div>
+
 
 </div>
 

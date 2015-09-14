@@ -34,6 +34,11 @@ class PostsController < ApplicationController
 
   end
 
+  def categories
+    @categories = ActsAsTaggableOn::Tag.most_used(9)
+   
+  end
+
   def short
     redirect_to user_post_path(:user_id => @post.user.profile.slug, :id => @post.slug)
   end
