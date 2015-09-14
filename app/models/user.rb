@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
- 
+ paginates_per 10
 
 
   enum role: [:user, :vip, :admin]
@@ -27,8 +27,8 @@ class User < ActiveRecord::Base
   end
 
 
-  validates_uniqueness_of :name
-  validates_presence_of :name
+  # validates_uniqueness_of :name
+  # validates_presence_of :name
 
 
 

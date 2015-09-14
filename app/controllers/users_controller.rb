@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.all
+    @users = User.all.page params[:page]
     # authorize User
     @views = 0
     @posts = Post.all
