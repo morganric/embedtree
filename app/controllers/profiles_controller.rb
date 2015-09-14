@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_profile, only: [:show, :edit, :update, :destroy, :popular]
   before_action :admin_only, :except => [:show, :page]
 
   # GET /profiles
@@ -11,9 +11,16 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    # @posts = Post.where(:user_id => @profile.user.id).reverse.page params[:page]s
+    # @posts = Post.where(:user_id => @profile.user.id).reverse.page params[:page]
+    
     @posts = Post.where(:user_id => @profile.user.id).order('created_at DESC').page params[:page]
   end
+
+  def popular
+    # @posts = Post.where(:user_id => @profile.user.id).reverse.page params[:page]
+    @posts = Post.where(:user_id => @profile.user.id).order('views DESC').page params[:page]
+  end
+
 
   # GET /profiles/new
   def new

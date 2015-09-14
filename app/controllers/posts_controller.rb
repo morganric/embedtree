@@ -30,9 +30,17 @@ class PostsController < ApplicationController
 
   def tag
     @tag = params[:tag]
-    @posts = Post.tagged_with(params[:tag]).order('created_at DESC').page params[:page]
+    @posts = Post.tagged_with(params[:tag]).order('views DESC').page params[:page]
 
   end
+
+
+  def tag_latest
+    @tag = params[:tag]
+    @posts = Post.tagged_with(params[:tag]).order('created_at DESC').page params[:page]
+  end
+
+
 
   def categories
     @categories = ActsAsTaggableOn::Tag.most_used(9)

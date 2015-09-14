@@ -4,13 +4,13 @@
   <hr/>
   <div class="col-md-10 col-md-offset-1">
 
-
-
-<ul class="nav nav-pills">
-  <li ><a href="<%= tag_latest_path(@tag) %>" >Latest</a></li>
-  <li  class="active"><a href="<%= tag_path(@tag) %>" >Popular</a></li>
+  <ul class="nav nav-pills">
+  <li class="active"><a href="<%= tag_latest_path(@tag) %>" >Latest</a></li>
+  <li  ><a href="<%= tag_path(@tag) %>" >Popular</a></li>
 </ul>
 <br/>
+
+
 
   <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
       <%= render 'shared/posts' %>
