@@ -69,7 +69,7 @@
   </div>
   <div class="panel-body">
     <% @post.favourited_by.limit(6).each do |user| %>
-      <%= link_to image_tag(user.profile.image.url(:thumb), :class => "img-circle"), vanity_profile_path(user.profile.slug) %>
+      <%= link_to image_tag(user.profile.image.url(:thumb) || "http://res.cloudinary.com/dqiy3fupl/image/upload/c_fit,h_50,w_50/v1441999507/fwtfqghdcnua2z6nfsh6.png", :class => "img-circle"), vanity_profile_path(user.profile.slug) %>
     <% end %>
 
   </div>
