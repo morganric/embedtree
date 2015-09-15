@@ -63,6 +63,7 @@
 
 <br/>
 
+<% unless @post.favourited_by.blank? %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Favourited by</h3>
@@ -74,6 +75,8 @@
 
   </div>
 </div>
+
+<% end %>
 
 
 <hr/>
