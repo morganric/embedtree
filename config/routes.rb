@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
    # get '/categories', to: 'posts#categories', :as =>  :categories
-   get '/latest', to: 'posts#latest', :as =>  :latest 
-      get 'tagged/:tag/latest', to: 'posts#tag_latest', :as =>  :tag_latest   
-    get '/about', to: 'visitors#index', :as =>  :about 
+  get '/latest', to: 'posts#latest', :as =>  :latest 
+  get 'tagged/:tag/latest', to: 'posts#tag_latest', :as =>  :tag_latest   
+  get '/about', to: 'visitors#index', :as =>  :about 
   get ':id/popular', to: 'profiles#popular', :as =>  :user_popular     
+  get ':id/favourites', to: 'profiles#favourites', as: :vanity_favourites
 
   resources :profiles
   resources :posts
@@ -17,7 +18,9 @@ Rails.application.routes.draw do
    get '/tagged/:tag', to: 'posts#tag', via: [:get, :post], :as => :tag
    get 'publisher/:provider', to: 'posts#provider', :as =>  :provider_posts
   
-	
+	post 'user_favs' => 'user_favs#create', :as => 'user_favs'
+  delete 'user_favs' => 'user_favs#destroy', :as => 'delete_user_favs'
+
   scope ":id" do
     get '/', to: 'profiles#show', :as =>  :vanity_profile
   end

@@ -15,4 +15,7 @@ validates_inclusion_of :provider, :in => ["Mixcloud", "SoundCloud", "Vimeo", "Yo
 extend FriendlyId
  friendly_id :title, use: :slugged
 
+ has_many :user_favs
+ has_many :favourites, through: :user_favs
+
 end

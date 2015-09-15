@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy, :popular]
+  before_action :set_profile, only: [:show, :edit, :update, :destroy, :popular, :favourites]
   before_action :admin_only, :except => [:show, :page, :popular, :edit]
 
   # GET /profiles
@@ -19,6 +19,11 @@ class ProfilesController < ApplicationController
   def popular
     # @posts = Post.where(:user_id => @profile.user.id).reverse.page params[:page]
     @posts = Post.where(:user_id => @profile.user.id).order('views DESC').page params[:page]
+  end
+
+  def favourites
+    # @posts = Post.where(:user_id => @profile.user.id).reverse.page params[:page]
+    @posts = @profile.user.favourites.order('views DESC').page params[:page]
   end
 
 

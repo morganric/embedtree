@@ -38,9 +38,6 @@
   });
 
 
-
-
-
     $('#masonry-container').infinitescroll({
       navSelector  : '.pagination',    // selector for the paged navigation 
       nextSelector : '.next_page a',  // selector for the NEXT link (to page 2)
@@ -65,6 +62,11 @@
         });
       }
     );
+
+     $('.fav').on('click', function(e){
+                location.reload();
+        });
+
 
 
 

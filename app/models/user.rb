@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_one :profile
+  has_many :user_favs
+  has_many :favourites, through: :user_favs, :source => :post
 
   def create_profile
     @profile = Profile.new(:user_id => id)
