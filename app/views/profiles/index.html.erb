@@ -11,7 +11,7 @@
        
         <div class="col-md-4">
         <h2><%= link_to profile.display_name, vanity_profile_path(id: profile) %></h2>
-       <label class="label label-primary"><i class="glyphicon glyphicon-cloud-upload" ></i> <%= profile.user.posts.count %></label>&nbsp;
+       <label class="label label-primary"><i class="glyphicon glyphicon-cloud-upload" ></i> <%#= profile.user.posts.count %></label>&nbsp;
        <label class="label label-primary"><i class="glyphicon glyphicon-heart" ></i> <%= profile.user.favourites.count %></label>
        
        </div>
