@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915103244) do
+ActiveRecord::Schema.define(version: 20150915141916) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150915103244) do
     t.string   "website"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "views"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", unique: true

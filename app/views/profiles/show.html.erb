@@ -13,7 +13,12 @@
 
 <p class="well">
   <%= @profile.bio %>
-  <%= link_to 'Edit', edit_profile_path(@profile) %> 
+
+  <% if user_signed_in? %>
+  <% if current_user.try(:admin?) || current_user == @profile.user %>
+  <%= link_to 'Edit', edit_profile_path(@profile) %> | <%= @profile.views %>
+  <% end %>
+  <% end %>
 
 </p>
 

@@ -11,6 +11,10 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+
+    @profile.views = @post.views.to_i + 1
+    @profile.save
+    
     # @posts = Post.where(:user_id => @profile.user.id).reverse.page params[:page]
     
     @posts = Post.where(:user_id => @profile.user.id).order('created_at DESC').page params[:page]
