@@ -19,23 +19,24 @@
 
     $(document).ready(function(){
 
+      $('.alert, .notice').fadeOut(3000);
 
 
-        var $container = $('#masonry-container');
+      var $container = $('#masonry-container');
 
-  $container.imagesLoaded(function(){
-    $container.masonry({
-      itemSelector: '.box',
-      // columnWidth: 320,
-      gutter: 0 ,
-      isAnimated: !Modernizr.csstransitions,
-      isFitWidth: true,
-      columnWidth: function( containerWidth ) {
-          return containerWidth / 6;
+      $container.imagesLoaded(function(){
+        $container.masonry({
+          itemSelector: '.box',
+          // columnWidth: 320,
+          gutter: 0 ,
+          isAnimated: !Modernizr.csstransitions,
+          isFitWidth: true,
+          columnWidth: function( containerWidth ) {
+              return containerWidth / 6;
 
-        }
-    });
-  });
+            }
+        });
+      });
 
 
     $('#masonry-container').infinitescroll({
