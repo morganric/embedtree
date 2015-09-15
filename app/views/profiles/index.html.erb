@@ -3,18 +3,22 @@
 
   <div class="col-md-10 col-md-offset-1">
 
-    <% @users.each do |user| %>
+    <% @users.limit(20).each_with_index do |user, index| %>
       <div class="row">
 
         <div class="pull-left col-md-2"> <%= link_to image_tag(user.profile.image.url(:thumbnail) || 'http://res.cloudinary.com/dqiy3fupl/image/upload/c_fill,h_100,w_100/v1441999507/fwtfqghdcnua2z6nfsh6.png', :class => "img-circle", :style => "border:2px solid grey;"),  vanity_profile_path(id: user.profile)  %>
-        &nbsp;</div>
+        &nbsp;
+        </div>
        
         <div class="col-md-4">
-        <h2><%= link_to user.profile.display_name, vanity_profile_path(id: user.profile) %></h2>
-       <label class="label label-primary"><i class="glyphicon glyphicon-cloud-upload" ></i> <%= user.posts.count %></label>&nbsp;
-       <label class="label label-primary"><i class="glyphicon glyphicon-heart" ></i> <%= user.favourites.count %></label>
-       
+          <h2><%= link_to user.profile.display_name, vanity_profile_path(id: user.profile) %></h2>
+         <label class="label label-primary"><i class="glyphicon glyphicon-cloud-upload" ></i> <%= user.posts.count %></label>&nbsp;
+         <label class="label label-primary"><i class="glyphicon glyphicon-heart" ></i> <%= user.favourites.count %></label>
        </div>
+
+       <span class="pull-right" style="font-size:84px;">
+         <%= index + 1 %>
+       </span>
 
        </div>
         <hr/>
