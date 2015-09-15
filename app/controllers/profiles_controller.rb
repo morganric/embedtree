@@ -27,7 +27,7 @@ class ProfilesController < ApplicationController
 
   def favourites
     # @posts = Post.where(:user_id => @profile.user.id).reverse.page params[:page]
-    @posts = @profile.user.favourites.order('views DESC').page params[:page]
+    @posts = @profile.user.favourites.order('created_at DESC').page params[:page]
   end
 
 
