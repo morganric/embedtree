@@ -11,10 +11,7 @@ paginates_per 10
  extend FriendlyId
   friendly_id :username, use: :slugged
 
-  has_many :posts, through: :user, counter_cache: true
-
-
-
-  default_scope { order("posts DESC") }
+  # has_many :posts, through: :user, counter_cache: true
+  # default_scope { order("posts DESC") }
 
 end
