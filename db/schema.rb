@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915174155) do
+ActiveRecord::Schema.define(version: 20150915202144) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 20150915174155) do
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
     t.string   "invite_code"
+    t.integer  "posts_count",            default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

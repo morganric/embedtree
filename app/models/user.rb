@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  attr_readonly :posts_count
+
  paginates_per 10
 
 
@@ -17,7 +19,7 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :posts, counter_cache: true
+  has_many :posts
   has_one :profile
   has_many :user_favs
   has_many :favourites, through: :user_favs, :source => :post

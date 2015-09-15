@@ -5,8 +5,9 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all.order('views DESC').page params[:page]
-    @users = User.all.order('created_at DESC').page params[:page]
+    # @profiles = Profile.all.order('rating_number ASC').page params[:page]
+    @users = User.all.order('posts_count DESC').page params[:page]
+
   end
 
   # GET /profiles/1

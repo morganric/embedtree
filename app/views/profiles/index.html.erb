@@ -11,15 +11,15 @@
        
         <div class="col-md-4">
         <h2><%= link_to user.profile.display_name, vanity_profile_path(id: user.profile) %></h2>
-       <!-- <label class="label label-primary"><i class="glyphicon glyphicon-cloud-upload" ></i> <%= user.posts.count %></label>&nbsp;
+       <label class="label label-primary"><i class="glyphicon glyphicon-cloud-upload" ></i> <%= user.posts.count %></label>&nbsp;
        <label class="label label-primary"><i class="glyphicon glyphicon-heart" ></i> <%= user.favourites.count %></label>
-        -->
+       
        </div>
 
        </div>
         <hr/>
     <% end %>
 
-    <%= paginate @profiles %>
+    <%= paginate @users %>
     </div>
 <br>

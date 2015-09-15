@@ -1,8 +1,9 @@
 class Post < ActiveRecord::Base
 
 
-belongs_to :user
+belongs_to :user, counter_cache: true
 paginates_per 6	
+
 
 acts_as_taggable
 
