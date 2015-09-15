@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
 
-    @profile.views = @post.views.to_i + 1
+    @profile.views = @profile.views.to_i + 1
     @profile.save
     
     # @posts = Post.where(:user_id => @profile.user.id).reverse.page params[:page]
