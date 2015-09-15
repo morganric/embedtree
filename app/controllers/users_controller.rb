@@ -15,6 +15,14 @@ class UsersController < ApplicationController
     Post.all.each do |p|
       @views = @views + p.views
     end
+
+    @total_profile_views = 0
+
+    Profile.all.each do |p|
+      @total_profile_views = @total_profile_views + p.views
+    end
+ 
+
   end
 
   def show
