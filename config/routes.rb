@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
    # get '/categories', to: 'posts#categories', :as =>  :categories
+  get '/community', to: 'profiles#index', :as =>  :community 
    get '/featured', to: 'posts#featured', :as =>  :featured 
   get '/latest', to: 'posts#latest', :as =>  :latest 
   get 'tagged/:tag/latest', to: 'posts#tag_latest', :as =>  :tag_latest   
