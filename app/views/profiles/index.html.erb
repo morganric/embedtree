@@ -3,16 +3,16 @@
 
   <div class="col-md-10 col-md-offset-1">
 
-    <% @profiles.each do |profile| %>
+    <% @users.each do |user| %>
       <div class="row">
 
-        <div class="pull-left col-md-2"> <%= link_to image_tag(profile.image.url(:thumbnail) || 'http://res.cloudinary.com/dqiy3fupl/image/upload/c_fill,h_100,w_100/v1441999507/fwtfqghdcnua2z6nfsh6.png', :class => "img-circle", :style => "border:2px solid grey;"),  vanity_profile_path(id: profile)  %>
+        <div class="pull-left col-md-2"> <%= link_to image_tag(user.profile.image.url(:thumbnail) || 'http://res.cloudinary.com/dqiy3fupl/image/upload/c_fill,h_100,w_100/v1441999507/fwtfqghdcnua2z6nfsh6.png', :class => "img-circle", :style => "border:2px solid grey;"),  vanity_profile_path(id: user.profile)  %>
         &nbsp;</div>
        
         <div class="col-md-4">
-        <h2><%= link_to profile.display_name, vanity_profile_path(id: profile) %></h2>
-       <label class="label label-primary"><i class="glyphicon glyphicon-cloud-upload" ></i> <%#= profile.user.posts.count %></label>&nbsp;
-       <label class="label label-primary"><i class="glyphicon glyphicon-heart" ></i> <%= profile.user.favourites.count %></label>
+        <h2><%= link_to user.profile.display_name, vanity_profile_path(id: user.profile) %></h2>
+       <label class="label label-primary"><i class="glyphicon glyphicon-cloud-upload" ></i> <%= user.posts.count %></label>&nbsp;
+       <label class="label label-primary"><i class="glyphicon glyphicon-heart" ></i> <%= user.favourites.count %></label>
        
        </div>
 
