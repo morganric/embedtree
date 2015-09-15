@@ -33,8 +33,10 @@
  <div class="col-md-10 col-md-offset-1">
 
 <ul class="nav nav-pills">
-  <li ><a href="/<%= @profile.slug %>" >Latest</a></li>
-  <li class="active"><a href="<%= @profile.slug %>/popular" >Popular</a></li>
+  <li ><a href="<%= vanity_profile_path(@profile.slug )%>" >Latest</a></li>
+  <li class="active"><a href="<%= user_popular_path(@profile.slug) %>" >Popular</a></li>
+   <li class=""><a href="<%= user_favourites_path(@profile.slug) %>" >Favourites</a></li>
+
 </ul>
 <br/>
 

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'tagged/:tag/latest', to: 'posts#tag_latest', :as =>  :tag_latest   
   get '/about', to: 'visitors#index', :as =>  :about 
   get ':id/popular', to: 'profiles#popular', :as =>  :user_popular     
-  get ':id/favourites', to: 'profiles#favourites', as: :vanity_favourites
+  get ':id/favourites', to: 'profiles#favourites', as: :user_favourites
 
   resources :profiles
   resources :posts
