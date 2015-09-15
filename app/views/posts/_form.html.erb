@@ -12,12 +12,17 @@
     <%= f.input :author_url, as: :hidden  %>
     <%= f.input :provider, as: :hidden  %>
     <%= f.input :provider_url, as: :hidden  %>
+
+    <% if user_signed_in? %>
+    <% if current_user.try(:admin?) %>
     <%= f.input :hidden %>
     <%= f.input :featured %>
     <%= f.input :user_id, as: :hidden  %>
     <%= f.input :views, as: :hidden  %>
     <%= f.input :slug, as: :hidden %>
     <%= f.input :tag_list %>
+    <% end %>
+    <% end %>
   </div>
 
   <div class="form-actions">
