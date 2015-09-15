@@ -16,6 +16,6 @@ extend FriendlyId
  friendly_id :title, use: :slugged
 
  has_many :user_favs
- has_many :favourites, through: :user_favs
+ has_many :favourited_by, through: :user_favs, :source => :user
 
 end

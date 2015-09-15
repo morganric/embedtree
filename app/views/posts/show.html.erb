@@ -61,6 +61,21 @@
 <li><%= pinit_button %></li>
 </ul>
 
+<br/>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Favourited by</h3>
+  </div>
+  <div class="panel-body">
+    <% @post.favourited_by.limit(6).each do |user| %>
+      <%= link_to image_tag(user.profile.image.url(:thumb), :class => "img-circle"), vanity_profile_path(user.profile.slug) %>
+    <% end %>
+
+  </div>
+</div>
+
+
 <hr/>
 
 <% if user_signed_in? %>
