@@ -5,7 +5,8 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
+    @profiles = Profile.all.joins(:post).order('posts.name asc').page params[:page]
+    # @users = User.find(:all, :order => 'photos_count')
   end
 
   # GET /profiles/1
@@ -95,6 +96,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:display_name, :bio, :image, :user_id, :slug, :website , :views)
+      params.require(:profile).permit(:display_name, :bio, :image, :user_id, :slug, :website , :views, :rating_number)
     end
 end

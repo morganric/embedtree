@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
 
+paginates_per 10
  mount_uploader :image, ImageUploader
  belongs_to :user
 
@@ -10,6 +11,10 @@ class Profile < ActiveRecord::Base
  extend FriendlyId
   friendly_id :username, use: :slugged
 
+  has_many :posts, through: :user, counter_cache: true
 
+
+
+  default_scope { order("posts DESC") }
 
 end

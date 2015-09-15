@@ -1,37 +1,25 @@
-<p id="notice"><%= notice %></p>
+<h1 class="text-center">Top Users</h1>
+<hr/>
 
-<h1>Listing Profiles</h1>
+  <div class="col-md-10 col-md-offset-1">
 
-<table>
-  <thead>
-    <tr>
-      <th>Display name</th>
-      <th>Bio</th>
-      <th>Image</th>
-      <th>User</th>
-      <th>Slug</th>
-      <th>Website</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @profiles.each do |profile| %>
-      <tr>
-        <td><%= profile.display_name %></td>
-        <td><%= profile.bio %></td>
-        <td><%= profile.image %></td>
-        <td><%= profile.user_id %></td>
-        <td><%= profile.slug %></td>
-        <td><%= profile.website %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row">
+
+        <div class="pull-left col-md-2"> <%= link_to image_tag(profile.image.url(:thumbnail) || 'http://res.cloudinary.com/dqiy3fupl/image/upload/c_fill,h_100,w_100/v1441999507/fwtfqghdcnua2z6nfsh6.png', :class => "img-circle", :style => "border:2px solid grey;"),  vanity_profile_path(id: profile)  %>
+        &nbsp;</div>
+       
+        <div class="col-md-4">
+        <h2><%= link_to profile.display_name, vanity_profile_path(id: profile) %></h2>
+       <label class="label label-primary"><i class="glyphicon glyphicon-cloud-upload" ></i> <%= profile.posts.count %></label>&nbsp;
+       <label class="label label-primary"><i class="glyphicon glyphicon-heart" ></i> <%= profile.user.favourites.count %></label>
+       
+       </div>
+
+       </div>
+        <hr/>
     <% end %>
-  </tbody>
-</table>
 
+    <%= paginate @profiles %>
+    </div>
 <br>
-
-<%= link_to 'New Profile', new_profile_path %>
