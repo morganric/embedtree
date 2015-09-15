@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all.joins(:post).order('posts.name asc').page params[:page]
+    @profiles = Profile.all.order('created_at asc').page params[:page]
     # @users = User.find(:all, :order => 'photos_count')
   end
 
