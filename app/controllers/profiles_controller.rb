@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy, :popular, :favourites]
-  before_action :authenticate_user! [:edit, :update]
-  before_action :admin_only, :except => [:show, :page, :popular, :edit]
+  before_action :authenticate_user!, :except => [:show, :page, :popular, :favourites, :index]
+  before_action :admin_only, :except => [:show, :page, :popular, :edit, :index]
 
   # GET /profiles
   # GET /profiles.json
