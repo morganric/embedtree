@@ -18,9 +18,9 @@ class UsersController < ApplicationController
 
     @total_profile_views = 0
 
-    Profile.all.each do |p|
-      @total_profile_views = @total_profile_views + p.views
-    end
+    # Profile.all.each do |p|
+    #   @total_profile_views = @total_profile_views + p.views
+    # end
  
 
   end
