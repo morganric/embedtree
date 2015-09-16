@@ -13,7 +13,7 @@ module PunditHelper
   private
 
   def user_not_authorized
-    flash[:alert] = "Sorry, ccess denied."
+    flash[:alert] = "Sorry, thou shall not pass."
     redirect_to (request.referrer || root_path)
   end
 
