@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :posts
-  has_one :profile
+  has_many :posts, dependent: :destroy
+  has_one :profile, dependent: :destroy
   has_many :user_favs
   has_many :favourites, through: :user_favs, :source => :post
 
@@ -28,6 +28,15 @@ class User < ActiveRecord::Base
     @profile = Profile.new(:user_id => id)
     @profile.display_name = self.name
     @profile.save
+  end
+
+  def block_from_invitation?
+    #If the user has not been confirmed yet, we let the usual controls work
+    if confirmed_at.blank?
+      return invited_to_sign_up?
+    else #if the user was confirmed, we let them in (will decide to accept or decline invitation from the dashboard)
+      return false
+    end
   end
 
 

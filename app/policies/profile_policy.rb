@@ -28,7 +28,7 @@ class ProfilePolicy
   end
 
   def update?
-    @current_user.admin?
+    @current_user.admin? or @current_user == @profile.user
   end
 
   def destroy?
