@@ -22,13 +22,14 @@ class ProfilePolicy
     true
   end
 
-
    def edit?
     @current_user.admin? or @current_user == @profile.user
+   
   end
 
   def update?
     @current_user.admin? or @current_user == @profile.user
+
   end
 
   def destroy?

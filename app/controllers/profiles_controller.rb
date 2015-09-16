@@ -1,7 +1,9 @@
 class ProfilesController < ApplicationController
+
+
   before_action :set_profile, only: [:show, :edit, :update, :destroy, :popular, :favourites]
   before_action :authenticate_user!, :except => [:show, :page, :popular, :favourites, :index]
-  before_action :admin_only, :except => [:show, :page, :popular, :edit, :index]
+  before_action :admin_only, :except => [:show, :page, :popular, :edit, :index, :favourites, :update]
 
   # GET /profiles
   # GET /profiles.json
@@ -41,13 +43,14 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+      authorize @profile
   end
 
   # POST /profiles
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
-
+    authorize @profile
     respond_to do |format|
       if @profile.save
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }

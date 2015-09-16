@@ -2,6 +2,7 @@ class Profile < ActiveRecord::Base
 
 paginates_per 10
  mount_uploader :image, ImageUploader
+ has_one :user
  belongs_to :user
 
  def username
