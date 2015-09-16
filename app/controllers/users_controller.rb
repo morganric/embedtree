@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
  
   before_action :authenticate_user!
-  after_action :verify_authorized
+  # after_action :verify_authorized
 
    before_action :admin_only
 
 
   def index
     @users = User.all.page params[:page]
-    # authorize User
+    authorize @users
     @views = 0
     @posts = Post.all
 
