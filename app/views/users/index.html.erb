@@ -1,6 +1,19 @@
+  <h1>Accounts Admin</h1>
+
 <div class="container">
   <div class="row col-md-8">
-    <h3>Users</h3>
+
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#accounts" aria-controls="home" role="tab" data-toggle="tab">Accounts</a></li>
+    <li role="presentation"><a href="#emails" aria-controls="profile" role="tab" data-toggle="tab">Emails</a></li>
+ </ul>
+
+ <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="accounts">
+
+     <h3>Accounts</h3>
     <div class="column">
       <table class="table">
         <tbody>
@@ -13,6 +26,26 @@
       </table>
         <%= paginate @users %>
     </div>
+      
+
+    </div>
+    <div role="tabpanel" class="tab-pane" id="emails">
+      
+       <h3>Emails</h3>
+    <div class="column">
+  
+          <% @users.each do |user| %>
+            <tr>
+              <%=  user.email %>,
+            </tr>
+          <% end %>
+  
+    </div>
+
+    </div>
+  </div>
+
+   
   </div>
 <div class="col-md-4">
 <br/>
