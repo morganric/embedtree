@@ -11,8 +11,7 @@
 <meta name="twitter:player:height" content="350px">
 
 <meta property="og:title" content="<%= @post.title %>" />
-<meta property="og:type" content="music.song" />
-<meta property="og:url" content="<%= user_post_url(id: @post.slug, :user_id => @post.user.name) %>" />
+<meta property="og:url" content="<%= post_url(id: @post.slug) %>" />
 <meta property="og:image" content="<%= @post.thumbnail %>" />
 <meta property="og:image:url" content="<%= @post.thumbnail %>" />
 <meta name="og:description" content="<%= @post.description %>">
