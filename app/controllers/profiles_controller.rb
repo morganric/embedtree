@@ -28,11 +28,21 @@ class ProfilesController < ApplicationController
   def popular
     # @posts = Post.where(:user_id => @profile.user.id).reverse.page params[:page]
     @posts = Post.where(:user_id => @profile.user.id).order('views DESC').page params[:page]
+
+
+     @profile.views = @profile.views.to_i + 1
+    @profile.save
+    
+
   end
 
   def favourites
     # @posts = Post.where(:user_id => @profile.user.id).reverse.page params[:page]
     @posts = @profile.user.favourites.order('created_at DESC').page params[:page]
+
+     @profile.views = @profile.views.to_i + 1
+    @profile.save
+    
   end
 
 

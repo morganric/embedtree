@@ -20,7 +20,9 @@
     <%= f.input :user_id, as: :hidden  %>
     <%= f.input :views, as: :hidden  %>
     <%= f.input :slug, as: :hidden %>
-    <%= f.input :tag_list %>
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list, :onfocus=>"this.value='';", :value=> @post.tags.map(&:name).join(","), :class=>"form-control" %>
+    <br/><br/>
     <% end %>
     <% end %>
   </div>
